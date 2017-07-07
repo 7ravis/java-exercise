@@ -1,4 +1,3 @@
-
 package exercise;
 
 import org.junit.Test;
@@ -11,27 +10,63 @@ import static org.junit.Assert.*;
 public class exerciseTest {
 
     /**
-     * Test of sumAllEvenFibonacciNumbersLessThan method, of class exercise.
+     * Test of sumEvenFibonacciNumbers method, of class Exercise.
      */
     @Test
-    public void testSumAllEvenFibonacciNumbersLessThan() {
+    public void testSumEvenFibonacciNumbers() {
         int limit = 4000000;
-        exercise instance = new exercise();
         int expResult = 4613732;
-        int result = instance.sumAllEvenFibonacciNumbersLessThan(limit);
-        assertEquals(expResult, result);
+        int result = Exercise.sumEvenFibonacciNumbers(limit);
+        assertEquals("limit 4,000,000", expResult, result);
+        limit = -10;
+        expResult = 0;
+        result = Exercise.sumEvenFibonacciNumbers(limit);
+        assertEquals("limit -10", expResult, result);
+        limit = 2;
+        expResult = 2;
+        result = Exercise.sumEvenFibonacciNumbers(limit);
+        assertEquals("limit 2", expResult, result);
     }
 
     /**
-     * Test of sumAllPrimeFibonacciNumbersLessThan method, of class exercise.
+     * Test of sumPrimeFibonacciNumbers method, of class Exercise.
      */
     @Test
-    public void testSumAllPrimeFibonacciNumbersLessThan() {
+    public void testSumPrimeFibonacciNumbers() {
         int limit = 4000000;
-        exercise instance = new exercise();
+        Exercise instance = new Exercise();
         int expResult = 544828;
-        int result = instance.sumAllPrimeFibonacciNumbersLessThan(limit);
-        assertEquals(expResult, result);
+        int result = instance.sumPrimeFibonacciNumbers(limit);
+        assertEquals("limit 4,000,000", expResult, result);
+        limit = -10;
+        expResult = 0;
+        result = Exercise.sumPrimeFibonacciNumbers(limit);
+        assertEquals("limit -10", expResult, result);
+        limit = 2;
+        expResult = 2;
+        result = Exercise.sumPrimeFibonacciNumbers(limit);
+        assertEquals("limit 2", expResult, result);
     }
     
+    /**
+     * Test of isAnagram method, of class Exercise.
+     */
+    @Test
+    public void testIsAnagram() {
+        assertTrue("aabc & baca", Exercise.isAnagram("aabc", "baca"));
+        assertFalse("aabac & babca", Exercise.isAnagram("aabac", "babca"));
+        assertFalse("aaa & aaaa", Exercise.isAnagram("aaa", "aaaa"));
+        assertFalse("aaa & null", Exercise.isAnagram("aaa", null));        
+    }
+    
+    /**
+     * Test of isPalindrome method, of class Exercise.
+     */
+    @Test
+    public void testIsPalindrome() {
+        assertTrue("racecar", Exercise.isPalindrome("racecar"));
+        assertFalse("raceccar", Exercise.isPalindrome("raceccar"));
+        assertTrue("A santa at nasa", Exercise.isPalindrome("A santa at nasa "));
+        assertFalse("null", Exercise.isPalindrome(null));
+    }
 }
