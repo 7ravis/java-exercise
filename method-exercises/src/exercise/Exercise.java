@@ -1,5 +1,8 @@
 package exercise;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +12,19 @@ import java.util.Map;
  */
 public class Exercise {
     
+    //method takes a LocalDateTime and returns the smallest angle between the hour hand and the minute hand of an analog clock representation of that time
+    public static BigDecimal getClockHandDegreeDifference(LocalTime time) {
+        if (time == null) {
+            return null;
+        }
+        BigDecimal minuteHandDegrees = new BigDecimal(time.getMinute()).multiply(new BigDecimal("6"));
+        BigDecimal partialHourHandDegrees = minuteHandDegrees.divide(new BigDecimal("12"), 2, RoundingMode.HALF_UP);
+        BigDecimal hourHandDegrees = (new BigDecimal(time.getHour()).multiply(new BigDecimal("30"))).add(partialHourHandDegrees);
+        BigDecimal degreeDifference = (hourHandDegrees.subtract(minuteHandDegrees)).abs();
+        return degreeDifference;
+    }
+    
+    //method returns the sum of all even Fibonacci numbers, terminating after a Fibonacci number is greater than or equal to the limit argument
     public static int sumEvenFibonacciNumbers(int limit) {
         if (limit <= 1) {
             return 0;
@@ -27,6 +43,7 @@ public class Exercise {
         return sum;
     }
     
+    //method returns the sum of all prime Fibonacci numbers, terminating after a Fibonacci number is greater than or equal to the limit argument
     public static int sumPrimeFibonacciNumbers(int limit) {
         if (limit <= 1) {
             return 0;
@@ -51,6 +68,7 @@ public class Exercise {
         return sum;
     }
     
+    //method checks if two string arguments are anagrams
     public static boolean isAnagram(String str1, String str2) {
         if (str1 == null || str2 == null) {
             return false;

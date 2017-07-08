@@ -1,5 +1,7 @@
 package exercise;
 
+import java.math.BigDecimal;
+import java.time.LocalTime;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -8,6 +10,20 @@ import static org.junit.Assert.*;
  * @author Travis Rogers
  */
 public class exerciseTest {
+    
+    /**
+     * Test of getClockHandDegreeDifference method, of class Exercise.
+     */
+    @Test
+    public void testGetClockHandDegreeDifference() {
+        BigDecimal expResult = new BigDecimal("157.50");
+        BigDecimal result = Exercise.getClockHandDegreeDifference(LocalTime.of(3,45));
+        assertEquals("3:45 argument", expResult, result);
+        expResult = null;
+        result = Exercise.getClockHandDegreeDifference(null);
+        assertEquals("null argument", expResult, result);
+        
+    }
 
     /**
      * Test of sumEvenFibonacciNumbers method, of class Exercise.
