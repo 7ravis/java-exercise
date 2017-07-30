@@ -110,4 +110,23 @@ public class Exercise {
         }
         return str1.equalsIgnoreCase(str2);
     }
+    
+    public static Integer findIndexOfFirstEquilibriumPoint(int[] intArray) {
+        if (intArray == null || intArray.length <= 2) {
+            return null;
+        }
+        int bottomSum = intArray[0];
+        int topSum = intArray[2];
+        for (int i = 3; i < intArray.length; i++) {
+            topSum += intArray[i];
+        }
+        for (int i = 1; i < intArray.length - 1; i++) {
+            if (bottomSum == topSum) {
+                return i;
+            }
+            bottomSum += intArray[i];
+            topSum -= intArray[i + 1];
+        }
+        return null;
+    }
 }

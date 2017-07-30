@@ -85,4 +85,17 @@ public class exerciseTest {
         assertTrue("A santa at nasa", Exercise.isPalindrome("A santa at nasa "));
         assertFalse("null", Exercise.isPalindrome(null));
     }
+    
+    /**
+     * Test of findIndexOfFirstEquilibriumPoint method, of class Exercise
+     */
+     @Test
+     public void testFindIndexOfFirstEquilibriumPoint() {
+         int[] testCase1 = {3,5,1,8,9};
+         int[] testCase2 = {4,3,1};
+         Integer result1 = Exercise.findIndexOfFirstEquilibriumPoint(testCase1);
+         Integer result2 = Exercise.findIndexOfFirstEquilibriumPoint(testCase2);
+         assertEquals(new Integer(3), result1);
+         assertNull(result2);
+     }
 }
