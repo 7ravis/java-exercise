@@ -3,7 +3,9 @@ package exercise;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -128,5 +130,18 @@ public class Exercise {
             topSum -= intArray[i + 1];
         }
         return null;
+    }
+    
+    public static List<Integer> findNumbersNotInSecondList(List<Integer> list1, List<Integer> list2) {
+        List<Integer> result = new ArrayList<>();
+        if (list1 == null || list2 == null || list1.size() == 0 || list2.size() == 0) {
+            return result;
+        }
+        for (int i = 0; i < list1.size(); i++) {
+            if (!list2.contains(list1.get(i))) {
+                result.add(list1.get(i));
+            }
+        }
+        return result;
     }
 }

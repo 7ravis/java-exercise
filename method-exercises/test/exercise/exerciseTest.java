@@ -2,6 +2,10 @@ package exercise;
 
 import java.math.BigDecimal;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -24,7 +28,7 @@ public class exerciseTest {
         assertEquals("null argument", expResult, result);
         
     }
-
+    
     /**
      * Test of sumEvenFibonacciNumbers method, of class Exercise.
      */
@@ -43,7 +47,7 @@ public class exerciseTest {
         result = Exercise.sumEvenFibonacciNumbers(limit);
         assertEquals("limit 2", expResult, result);
     }
-
+    
     /**
      * Test of sumPrimeFibonacciNumbers method, of class Exercise.
      */
@@ -72,7 +76,7 @@ public class exerciseTest {
         assertTrue("aabc & baca", Exercise.isAnagram("aabc", "baca"));
         assertFalse("aabac & babca", Exercise.isAnagram("aabac", "babca"));
         assertFalse("aaa & aaaa", Exercise.isAnagram("aaa", "aaaa"));
-        assertFalse("aaa & null", Exercise.isAnagram("aaa", null));        
+        assertFalse("aaa & null", Exercise.isAnagram("aaa", null));
     }
     
     /**
@@ -89,13 +93,32 @@ public class exerciseTest {
     /**
      * Test of findIndexOfFirstEquilibriumPoint method, of class Exercise
      */
-     @Test
-     public void testFindIndexOfFirstEquilibriumPoint() {
-         int[] testCase1 = {3,5,1,8,9};
-         int[] testCase2 = {4,3,1};
-         Integer result1 = Exercise.findIndexOfFirstEquilibriumPoint(testCase1);
-         Integer result2 = Exercise.findIndexOfFirstEquilibriumPoint(testCase2);
-         assertEquals(new Integer(3), result1);
-         assertNull(result2);
-     }
+    @Test
+    public void testFindIndexOfFirstEquilibriumPoint() {
+        int[] testCase1 = {3,5,1,8,9};
+        int[] testCase2 = {4,3,1};
+        Integer result1 = Exercise.findIndexOfFirstEquilibriumPoint(testCase1);
+        Integer result2 = Exercise.findIndexOfFirstEquilibriumPoint(testCase2);
+        assertEquals(new Integer(3), result1);
+        assertNull(result2);
+    }
+    
+    /**
+     * Test of findNumbersNotInSecondList method, of class Exercise
+     */
+    @Test
+    public void testFindNumbersNotInSecondList() {
+        List<Integer> list1 = Arrays.asList(3,7,4,6,10,78);
+        List<Integer> list2 = Arrays.asList(18,7,4,10);
+        List<Integer> result = Exercise.findNumbersNotInSecondList(list1, list2);
+        result = result.stream().sorted((a,b) -> a.compareTo(b)).collect(Collectors.toList());
+        List<Integer> expResult = Arrays.asList(3,6,78);
+        assertEquals(expResult, result);
+        List<Integer> list3 = Arrays.asList(8,10,18);
+        List<Integer> list4 = Arrays.asList(18,8,5,10,21);
+        List<Integer> result2 = Exercise.findNumbersNotInSecondList(list3, list4);
+        result2 = result2.stream().sorted((a,b) -> a.compareTo(b)).collect(Collectors.toList());
+        List<Integer> expResult2 = new ArrayList<>();
+        assertEquals(expResult2, result2);
+    }
 }
