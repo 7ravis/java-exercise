@@ -121,4 +121,18 @@ public class exerciseTest {
         List<Integer> expResult2 = new ArrayList<>();
         assertEquals(expResult2, result2);
     }
+    
+    /**
+     * Test of translateDnaToRna method, of class Exercise
+     */
+    @Test
+    public void testTranslateDnaToRna() {
+        String result1 = Exercise.translateDnaToRna("G");
+        assertEquals("C", Exercise.translateDnaToRna("G"));
+        assertEquals("G", Exercise.translateDnaToRna("c"));
+        assertEquals("U", Exercise.translateDnaToRna("A"));
+        assertEquals("A", Exercise.translateDnaToRna("t"));
+        assertEquals("UGCACCAGAAUU", Exercise.translateDnaToRna("ACGTGGTCTTAA"));
+        assertNull(Exercise.translateDnaToRna("ACXTGG"));
+    }
 }

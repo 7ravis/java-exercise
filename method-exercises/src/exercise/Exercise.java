@@ -144,4 +144,32 @@ public class Exercise {
         }
         return result;
     }
+    
+    public static String translateDnaToRna(String input) {
+        if (input == null) { return null; }
+        input = input.replace(" ", "").toUpperCase();
+        if (input.length() == 0) { return null; }
+        char[] array = input.toCharArray();
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != 'G' && array[i] != 'C' && array[i] != 'T' && array[i] != 'A') {
+                return null;
+            }
+            switch (array[i]) {
+                case 'G':
+                    array[i] = 'C';
+                    break;
+                case 'C':
+                    array[i] = 'G';
+                    break;
+                case 'T':
+                    array[i] = 'A';
+                    break;
+                case 'A':
+                    array[i] = 'U';
+                    break;
+                default:
+            }
+        }
+        return String.copyValueOf(array);
+    }
 }
