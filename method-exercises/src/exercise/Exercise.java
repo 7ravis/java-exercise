@@ -172,4 +172,41 @@ public class Exercise {
         }
         return String.copyValueOf(array);
     }
+    
+    public static Integer findMostFrequentInt(List<Integer> input) {
+        if (input == null || input.size() == 0) { return null; }
+        Map<Integer, MutableInt> results = new HashMap<>();
+        int mostFrequentInt = Integer.MIN_VALUE;
+        int maxOccurences = 0;
+        boolean isTie = false;
+        for (int i = 0; i < input.size(); i++) {
+            if (input.get(i) == null) { continue; }
+            int currentInt = input.get(i);
+            if (results.containsKey(currentInt)) { results.get(currentInt).increment(); } 
+            else { results.put(currentInt, new MutableInt()); }            
+        }
+        for (Integer key : results.keySet()) {
+            int occurences = results.get(key).getValue();
+            if (occurences > maxOccurences) {
+                isTie = false;
+                mostFrequentInt = key;
+                maxOccurences = occurences;
+            } else if (occurences == maxOccurences) {
+                isTie = true;
+            }
+        }
+        if (isTie == true) { return null; }
+        return mostFrequentInt;
+    }
+    
+    private static class MutableInt {        
+        int value = 0;
+        
+        public int getValue() {
+            return value;
+        }
+        public void increment() {
+            value++;
+        }
+    }
 }

@@ -135,4 +135,15 @@ public class exerciseTest {
         assertEquals("UGCACCAGAAUU", Exercise.translateDnaToRna("ACGTGGTCTTAA"));
         assertNull(Exercise.translateDnaToRna("ACXTGG"));
     }
+    
+    /**
+     * Test of findMostFrequentInt method, of class Exercise
+     */
+    @Test
+    public void testFindMostFrequentInt() {
+        List<Integer> list1 = Arrays.asList(2, 87, 56, 87, 4, 56, 5, 56, 7);
+        assertEquals(new Integer(56), Exercise.findMostFrequentInt(list1));
+        List<Integer> list2 = Arrays.asList(3, 4, 4, 3, 6);
+        assertNull(Exercise.findMostFrequentInt(list2));        
+    }
 }
