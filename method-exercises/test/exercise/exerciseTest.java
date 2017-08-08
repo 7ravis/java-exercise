@@ -54,9 +54,8 @@ public class exerciseTest {
     @Test
     public void testSumPrimeFibonacciNumbers() {
         int limit = 4000000;
-        Exercise instance = new Exercise();
         int expResult = 544828;
-        int result = instance.sumPrimeFibonacciNumbers(limit);
+        int result = Exercise.sumPrimeFibonacciNumbers(limit);
         assertEquals("limit 4,000,000", expResult, result);
         limit = -10;
         expResult = 0;
@@ -127,7 +126,6 @@ public class exerciseTest {
      */
     @Test
     public void testTranslateDnaToRna() {
-        String result1 = Exercise.translateDnaToRna("G");
         assertEquals("C", Exercise.translateDnaToRna("G"));
         assertEquals("G", Exercise.translateDnaToRna("c"));
         assertEquals("U", Exercise.translateDnaToRna("A"));
@@ -145,5 +143,19 @@ public class exerciseTest {
         assertEquals(new Integer(56), Exercise.findMostFrequentInt(list1));
         List<Integer> list2 = Arrays.asList(3, 4, 4, 3, 6);
         assertNull(Exercise.findMostFrequentInt(list2));        
+    }
+    
+    /**
+     * Test of findFirstNonRepeatedCharacter method, of class Exercise
+     */
+    @Test
+    public void testFindFirstNonRepeatedCharacter() {
+    		assertEquals(new Character('a'), Exercise.findFirstNonRepeatedCharacter("hhhyyaoolll"));
+    		assertEquals(new Character('b'), Exercise.findFirstNonRepeatedCharacter("hhhyyggoob"));
+    		assertEquals(new Character('c'), Exercise.findFirstNonRepeatedCharacter("chhhyyoolll"));
+    		assertEquals(new Character('d'), Exercise.findFirstNonRepeatedCharacter("d"));
+    		assertNull(Exercise.findFirstNonRepeatedCharacter("hhhyyoolll"));
+    		assertNull(Exercise.findFirstNonRepeatedCharacter(""));
+    		assertNull(Exercise.findFirstNonRepeatedCharacter(null));
     }
 }

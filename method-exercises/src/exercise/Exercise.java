@@ -34,7 +34,7 @@ public class Exercise {
         int sum = 0;
         int num1 = 0;
         int num2 = 1;
-        for (int i = 0; num2 < limit; i++) {
+        while (num2 < limit) {
             int fibNum = num1 + num2;
             if (fibNum % 2 == 0) {
                 sum += fibNum;
@@ -53,7 +53,7 @@ public class Exercise {
         int sum = 0;
         int num1 = 0;
         int num2 = 1;
-        for (int i = 0; num2 < limit; i++) {
+        while (num2 < limit) {
             int fibNum = num1 + num2;
             int primeSum = 0;
             for (int j = 1; j < fibNum; j++) {
@@ -208,5 +208,34 @@ public class Exercise {
         public void increment() {
             value++;
         }
+    }
+    
+    public static Character findFirstNonRepeatedCharacter(String input) {    		
+    		if (input == null || input.length() == 0) {
+    			return null;
+    		}
+    		int length = input.length();
+    		if (length == 1) {
+    			return input.charAt(0);
+    		}
+    		for (int i = 0; i < length; i++) {
+    			if (i == 0) {
+    				char myChar = input.charAt(i);
+    				if (myChar != input.charAt(i + 1)) {
+    					return myChar;
+    				}
+    			} else if (i == length - 1) {
+    				char myChar = input.charAt(i);
+    				if (myChar != input.charAt(i - 1)) {
+    					return myChar;
+    				}
+    			} else {
+    				char myChar = input.charAt(i);
+    				if (myChar != input.charAt(i - 1) && myChar != input.charAt(i + 1)) {
+    					return myChar;
+    				}
+    			}
+    		}
+    		return null;
     }
 }
