@@ -158,4 +158,26 @@ public class exerciseTest {
     		assertNull(Exercise.findFirstNonRepeatedCharacter(""));
     		assertNull(Exercise.findFirstNonRepeatedCharacter(null));
     }
+    
+    /**
+     * Test of createAcronym method, of class Exercise
+     */
+    @Test
+    public void testCreateAcronym() {
+    		assertEquals("PNG", Exercise.createAcronym("Portable Network Graphics"));
+    		assertEquals("FIFO", Exercise.createAcronym("First In, First Out"));
+    		assertEquals("PHP", Exercise.createAcronym("PHP: Hypertext Preprocessor"));
+    		assertEquals("GIMP", Exercise.createAcronym("GNU Image Manipulation Program"));
+    		assertEquals("CMOS", Exercise.createAcronym("Complementary metal-oxide semiconductor"));
+    		assertNull(Exercise.createAcronym("/"));
+    		assertNull(Exercise.createAcronym(" "));
+    		assertNull(Exercise.createAcronym(null));
+    }
+    
+//    Portable Network Graphics -> PNG
+//    Ruby on Rails -> ROR
+//    First In, First Out -> FIFO
+//    PHP: Hypertext Preprocessor -> PHP
+//    GNU Image Manipulation Program -> GIMP
+//    Complementary metal-oxide semiconductor -> CMOS
 }
