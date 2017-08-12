@@ -90,7 +90,7 @@ public class exerciseTest {
     }
     
     /**
-     * Test of findIndexOfFirstEquilibriumPoint method, of class Exercise
+     * Test of findIndexOfFirstEquilibriumPoint method, of class Exercise.
      */
     @Test
     public void testFindIndexOfFirstEquilibriumPoint() {
@@ -103,7 +103,7 @@ public class exerciseTest {
     }
     
     /**
-     * Test of findNumbersNotInSecondList method, of class Exercise
+     * Test of findNumbersNotInSecondList method, of class Exercise.
      */
     @Test
     public void testFindNumbersNotInSecondList() {
@@ -122,7 +122,7 @@ public class exerciseTest {
     }
     
     /**
-     * Test of translateDnaToRna method, of class Exercise
+     * Test of translateDnaToRna method, of class Exercise.
      */
     @Test
     public void testTranslateDnaToRna() {
@@ -135,7 +135,7 @@ public class exerciseTest {
     }
     
     /**
-     * Test of findMostFrequentInt method, of class Exercise
+     * Test of findMostFrequentInt method, of class Exercise.
      */
     @Test
     public void testFindMostFrequentInt() {
@@ -146,7 +146,7 @@ public class exerciseTest {
     }
     
     /**
-     * Test of findFirstNonRepeatedCharacter method, of class Exercise
+     * Test of findFirstNonRepeatedCharacter method, of class Exercise.
      */
     @Test
     public void testFindFirstNonRepeatedCharacter() {
@@ -160,7 +160,7 @@ public class exerciseTest {
     }
     
     /**
-     * Test of createAcronym method, of class Exercise
+     * Test of createAcronym method, of class Exercise.
      */
     @Test
     public void testCreateAcronym() {
@@ -174,10 +174,14 @@ public class exerciseTest {
     		assertNull(Exercise.createAcronym(null));
     }
     
-//    Portable Network Graphics -> PNG
-//    Ruby on Rails -> ROR
-//    First In, First Out -> FIFO
-//    PHP: Hypertext Preprocessor -> PHP
-//    GNU Image Manipulation Program -> GIMP
-//    Complementary metal-oxide semiconductor -> CMOS
+    /**
+     * Test of findLongestWord method, of class Exercise.
+     */
+    @Test
+    public void testFindLongestWord() {
+    		assertEquals("you", Exercise.findLongestWord("Hi, you are Sam."));
+    		assertEquals("half-cooked", Exercise.findLongestWord("half-cooked in the broiler"));
+    		assertEquals("no", Exercise.findLongestWord("no no no"));
+    		assertNull(Exercise.findLongestWord("."));
+    }
 }

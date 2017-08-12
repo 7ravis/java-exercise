@@ -259,4 +259,26 @@ public class Exercise {
 			return output.toString();
 		}
 	}
+	
+	public static String findLongestWord(String input) {
+		if (input == null || input.trim().length() == 0) {
+			return null;
+		}
+		StringBuilder longestWord = new StringBuilder();
+		StringBuilder tempWord = new StringBuilder();
+		for (int i = 0; i < input.length(); i++) {
+			char curChar = input.charAt(i);
+			if (Character.isLetter(curChar) || curChar == '-') {
+				tempWord.append(curChar);
+			} else {
+				if (tempWord.length() > longestWord.length()) {
+					longestWord.delete(0,longestWord.length());
+					longestWord.append(tempWord.toString());
+				}
+				tempWord.delete(0, tempWord.length());
+			}
+		}
+		if (longestWord.length() == 0) { return null; }
+		return longestWord.toString();
+	}
 }
